@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Haneesh Chowdary Ponduri - Computer Science Engineer specializing in Python, AI/ML, and Web Technologies.">
+  <meta name="keywords" content="Haneesh Chowdary, Portfolio, Python Developer, AI ML Engineer, Computer Science Graduate, Web Developer">
+  <meta name="author" content="Haneesh Chowdary Ponduri">
+  <title>Haneesh Chowdary Ponduri | Software Engineer & AI/ML Enthusiast</title>
+  
+  <!-- Google Fonts: Inter & Outfit -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%20width=%22100%22%20height=%22100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+</head>
+<body>
+  <!-- Dynamic Background Canvas & Tech Grid -->
+  <canvas id="bgCanvas" class="bg-canvas"></canvas>
+  <div class="bg-grid-pattern"></div>
+  <div class="glow-sphere sphere-1"></div>
+  <div class="glow-sphere sphere-2"></div>
+  <div class="glow-sphere sphere-3"></div>
+  <div class="glow-sphere sphere-4"></div>
+  <div class="glow-sphere sphere-5"></div>
+
+  <!-- Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-logo">
+        <span class="logo-symbol">&lt;H/&gt;</span>
+        <span class="logo-text">Haneesh<span>.dev</span></span>
+      </a>
+
+      <!-- Quick Background Theme Switcher -->
+      <div class="theme-switcher-wrapper">
+        <button class="btn-theme-toggle" id="themeToggleBtn" aria-label="Change Background Theme" title="Switch Background Style">
+          <span class="theme-icon" id="themeIcon">💎</span>
+          <span class="theme-name" id="themeName">Midnight Sapphire</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        <div class="theme-dropdown" id="themeDropdown">
+          <button class="theme-option active" data-theme="midnight">
+            <span class="opt-icon">💎</span>
+            <div>
+              <div class="opt-title">Midnight Sapphire</div>
+              <div class="opt-sub">Deep obsidian-navy & cyan aurora</div>
+            </div>
+          </button>
+          <button class="theme-option" data-theme="amethyst">
+            <span class="opt-icon">🔮</span>
+            <div>
+              <div class="opt-title">Royal Amethyst</div>
+              <div class="opt-sub">Velvet violet & magenta glow</div>
+            </div>
+          </button>
+          <button class="theme-option" data-theme="cyber">
+            <span class="opt-icon">⚡</span>
+            <div>
+              <div class="opt-title">Cyber Emerald</div>
+              <div class="opt-sub">Matrix neon emerald & teal</div>
+            </div>
+          </button>
+          <button class="theme-option" data-theme="sunset">
+            <span class="opt-icon">🌅</span>
+            <div>
+              <div class="opt-title">Sunset Horizon</div>
+              <div class="opt-sub">Warm amber & coral radiance</div>
+            </div>
+          </button>
+          <button class="theme-option" data-theme="obsidian">
+            <span class="opt-icon">🖤</span>
+            <div>
+              <div class="opt-title">Obsidian Minimal</div>
+              <div class="opt-sub">Pure OLED dark subtle slate</div>
+            </div>
+          </button>
+          <button class="theme-option" data-theme="light">
+            <span class="opt-icon">☀️</span>
+            <div>
+              <div class="opt-title">Clean Light</div>
+              <div class="opt-sub">Crisp modern light mode</div>
+            </div>
+          </button>
+
+          <!-- Interactive Custom Background Color Swatch -->
+          <div class="theme-custom-row">
+            <div class="theme-custom-label">
+              <span>🎨</span>
+              <span>Custom Color:</span>
+            </div>
+            <input type="color" id="customBgColorInput" class="theme-color-input" value="#070b19" title="Pick any custom background color">
+          </div>
+        </div>
+      </div>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#certifications" class="nav-link">Certifications</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="#contact" class="btn-hire">Hire Me</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero-section" id="home">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <div class="status-pill">
+          <span class="pulse-indicator"></span>
+          <span>Available for New Roles & Immediate Joining</span>
+        </div>
+
+        <h1 class="hero-title">
+          Hi, I'm <span class="gradient-text">Haneesh Chowdary</span>
+        </h1>
+
+        <div class="hero-dynamic-role">
+          <span class="role-prefix">I build </span>
+          <span class="typewriter-text" id="typewriterText"></span>
+          <span class="cursor">&nbsp;</span>
+        </div>
+
+        <p class="hero-description">
+          Computer Science & Engineering graduate passionate about transforming complex data into 
+          intelligent models and building performant, modern software solutions.
+        </p>
+
+        <div class="hero-cta-group">
+          <a href="#projects" class="btn btn-primary">
+            <span>Explore Projects</span>
+            <svg class="icon-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+          <button class="btn btn-glass" id="heroCopyEmailBtn" title="Click to copy email address">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>Copy Email</span>
+          </button>
+        </div>
+
+        <!-- Metric highlights bar -->
+        <div class="hero-metrics">
+          <div class="metric-card">
+            <div class="metric-number">80%</div>
+            <div class="metric-label">B.Tech Aggregate</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <div class="metric-number">2+</div>
+            <div class="metric-label">Major & Mini Projects</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <div class="metric-number">3+</div>
+            <div class="metric-label">Certifications & Badges</div>
+          </div>
+          <div class="metric-divider"></div>
+          <div class="metric-card">
+            <div class="metric-number">2025</div>
+            <div class="metric-label">CSE Graduate</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Section -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-sub">Background & Vision</span>
+        <h2 class="section-title">About Me</h2>
+        <div class="section-decor"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-card glass-panel">
+          <div class="about-header-badge">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>Professional Profile</span>
+          </div>
+          <h3 class="about-headline">Aspiring Software Engineer & Problem Solver</h3>
+          <p class="about-text">
+            I am a Computer Science and Engineering graduate from <strong>Vignan’s Lara Institute of Technology and Science</strong> with an 80% aggregate. My core interest lies at the intersection of <strong>Python programming, Machine Learning, and Web Architecture</strong>.
+          </p>
+          <p class="about-text">
+            During my academic journey, I have developed deep learning frameworks for healthcare image analysis and web-based database platforms for academic institutions. My goal is to join a progressive multinational team where I can apply my analytical skills, continuously adopt cutting-edge tech stacks, and deliver robust software.
+          </p>
+          
+          <div class="about-highlights">
+            <div class="highlight-item">
+              <span class="check-icon">✓</span>
+              <span>Solid foundation in Object-Oriented Python & Algorithm Design</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check-icon">✓</span>
+              <span>Practical experience with ML pipelines & Image Processing</span>
+            </div>
+            <div class="highlight-item">
+              <span class="check-icon">✓</span>
+              <span>Collaborative team player with strong technical communication</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="quick-facts glass-panel">
+          <h3 class="facts-title">Quick Information</h3>
+          <ul class="facts-list">
+            <li>
+              <span class="fact-icon">🎓</span>
+              <div>
+                <span class="fact-label">Degree</span>
+                <span class="fact-value">B.Tech in Computer Science & Eng.</span>
+              </div>
+            </li>
+            <li>
+              <span class="fact-icon">🏛️</span>
+              <div>
+                <span class="fact-label">Institution</span>
+                <span class="fact-value">Vignan's Lara Institute of Tech & Science</span>
+              </div>
+            </li>
+            <li>
+              <span class="fact-icon">📍</span>
+              <div>
+                <span class="fact-label">Location</span>
+                <span class="fact-value">Andhra Pradesh, India</span>
+              </div>
+            </li>
+            <li>
+              <span class="fact-icon">✉️</span>
+              <div>
+                <span class="fact-label">Email</span>
+                <a href="mailto:haneeshchowdaryp@gmail.com" class="fact-link">haneeshchowdaryp@gmail.com</a>
+              </div>
+            </li>
+            <li>
+              <span class="fact-icon">💼</span>
+              <div>
+                <span class="fact-label">Employment Status</span>
+                <span class="fact-value tag-active">Actively Interviewing</span>
+              </div>
+            </li>
+          </ul>
+
+          <div class="resume-box">
+            <h4>Ready to discuss potential opportunities?</h4>
+            <p>Download my updated resume or view my work profile.</p>
+            <a href="mailto:haneeshchowdaryp@gmail.com?subject=Interview%20Inquiry%20-%20Haneesh%20Chowdary" class="btn btn-primary btn-sm btn-full">
+              Request Full Resume
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Matrix Section -->
+  <section class="section" id="skills">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-sub">Capabilities</span>
+        <h2 class="section-title">Technical Expertise</h2>
+        <p class="section-desc">Tools, languages, and technologies I leverage to build solutions</p>
+        <div class="section-decor"></div>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="skills-filter-container">
+        <button class="filter-tab active" data-filter="all">All Skills</button>
+        <button class="filter-tab" data-filter="programming">Programming</button>
+        <button class="filter-tab" data-filter="aiml">AI & Machine Learning</button>
+        <button class="filter-tab" data-filter="webdb">Web & Database</button>
+        <button class="filter-tab" data-filter="tools">Tools & IDEs</button>
+      </div>
+
+      <!-- Skills Cards Grid -->
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Programming -->
+        <div class="skill-card glass-panel" data-category="programming">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">PY</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">Python</h4>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <p class="skill-desc">Python 3.9 & 3.11, OOP, Scripting, Data structures, Standard Library</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI/ML -->
+        <div class="skill-card glass-panel" data-category="aiml">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">ML</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">Machine Learning</h4>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <p class="skill-desc">Supervised & Unsupervised Learning, Feature Engineering, Scikit-Learn patterns</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 82%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-panel" data-category="aiml">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">NN</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">Neural Networks & DL</h4>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <p class="skill-desc">Deep Learning architectures, activation functions, backpropagation concepts</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 78%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-panel" data-category="aiml">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">CV</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">Image Processing</h4>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <p class="skill-desc">Preprocessing, tissue feature extraction, computer vision analysis for diagnostics</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Web & Database -->
+        <div class="skill-card glass-panel" data-category="webdb">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">H5</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">HTML5 & CSS3</h4>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <p class="skill-desc">Semantic HTML, Flexbox, CSS Grid, Responsive Design, CSS animations</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 85%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-panel" data-category="webdb">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">SQL</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">MySQL Database</h4>
+              <span class="skill-level">Proficient</span>
+            </div>
+            <p class="skill-desc">Relational Schema Design, Complex Joins, Query Optimization, CRUD operations</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 80%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-panel" data-category="webdb">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">JS</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">JavaScript</h4>
+              <span class="skill-level">Intermediate</span>
+            </div>
+            <p class="skill-desc">DOM manipulation, asynchronous operations, event handling, responsive interactions</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 75%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tools & IDEs -->
+        <div class="skill-card glass-panel" data-category="tools">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">VSC</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">VS Code & PyCharm</h4>
+              <span class="skill-level">Daily Driver</span>
+            </div>
+            <p class="skill-desc">Debugging, environment configurations, linting, extensions, version control</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 90%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-panel" data-category="tools">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">JUP</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">Jupyter Notebook</h4>
+              <span class="skill-level">Advanced</span>
+            </div>
+            <p class="skill-desc">Exploratory Data Analysis (EDA), model experimentation, rapid prototyping</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 88%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skill-card glass-panel" data-category="tools">
+          <div class="skill-icon-wrapper">
+            <span class="skill-badge-code">AWS</span>
+          </div>
+          <div class="skill-info">
+            <div class="skill-title-row">
+              <h4 class="skill-name">AWS Cloud & Python</h4>
+              <span class="skill-level">Certified Training</span>
+            </div>
+            <p class="skill-desc">Cloud integration concepts, cloud-hosted Python workflows, foundational AWS</p>
+            <div class="skill-bar-container">
+              <div class="skill-progress-bar" style="width: 72%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Projects Section -->
+  <section class="section" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-sub">Portfolio Work</span>
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-desc">Real-world applications built during my academic and technical journey</p>
+        <div class="section-decor"></div>
+      </div>
+
+      <div class="projects-grid">
+        <!-- Project 1: Nutri Scan AI -->
+        <article class="project-card glass-panel">
+          <div class="project-banner project-banner-ai">
+            <div class="banner-badge">Major Project • Team of 3</div>
+            <div class="project-visual-icon">🔬</div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Image Processing</span>
+              <span class="tag">Healthcare AI</span>
+            </div>
+
+            <h3 class="project-title">Nutri Scan AI System</h3>
+            <p class="project-summary">
+              An intelligent computer vision system engineered to detect and distinguish micro-nutrient and vitamin 
+              deficiencies from human tissue and nail bed samples using deep learning models.
+            </p>
+
+            <ul class="project-feature-list">
+              <li>High-accuracy classification trained on medical image datasets.</li>
+              <li>Automated image enhancement & segmentation for tissue evaluation.</li>
+              <li>Intuitive user portal for clinicians and patients to receive instant reports.</li>
+            </ul>
+
+            <div class="project-footer">
+              <button class="btn btn-secondary btn-sm open-modal-btn" data-project="nutri-scan">
+                <span>View Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Student Result Management System -->
+        <article class="project-card glass-panel">
+          <div class="project-banner project-banner-edu">
+            <div class="banner-badge">Mini Project • Team of 4</div>
+            <div class="project-visual-icon">📊</div>
+          </div>
+
+          <div class="project-body">
+            <div class="project-tags">
+              <span class="tag">MySQL</span>
+              <span class="tag">HTML5 / CSS</span>
+              <span class="tag">Python</span>
+              <span class="tag">Academic Systems</span>
+            </div>
+
+            <h3 class="project-title">Student Result Management System</h3>
+            <p class="project-summary">
+              A comprehensive institutional database portal designed for educational faculties to digitize grade publication, 
+              track student academic trajectories, and diagnose backlog risks early.
+            </p>
+
+            <ul class="project-feature-list">
+              <li>Role-based access control for students, faculty, and administrators.</li>
+              <li>Automated backlog detection algorithms with actionable reporting.</li>
+              <li>Optimized MySQL relational schema for high-throughput semester exams.</li>
+            </ul>
+
+            <div class="project-footer">
+              <button class="btn btn-secondary btn-sm open-modal-btn" data-project="student-system">
+                <span>View Full Case Study</span>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                  <polyline points="15 3 21 3 21 9"></polyline>
+                  <line x1="10" y1="14" x2="21" y2="3"></line>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Timeline Section -->
+  <section class="section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-sub">Academic Background</span>
+        <h2 class="section-title">Education Journey</h2>
+        <div class="section-decor"></div>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <!-- B.Tech -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <div class="timeline-date-badge">2021 — 2025</div>
+            <h3 class="timeline-degree">B.Tech in Computer Science and Engineering</h3>
+            <h4 class="timeline-institution">Vignan’s Lara Institute of Technology and Science</h4>
+            <div class="score-badge">
+              <span class="score-highlight">80% Aggregate</span> • First Class with Distinction
+            </div>
+            <p class="timeline-notes">
+              Focused on core computing fundamentals: Data Structures, Object-Oriented Analysis, Machine Learning, Operating Systems, Computer Networks, and Database Management Systems. Led academic project teams as coordinator.
+            </p>
+          </div>
+        </div>
+
+        <!-- Intermediate -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <div class="timeline-date-badge">2019 — 2021</div>
+            <h3 class="timeline-degree">Higher Secondary Certificate (Intermediate — MPC)</h3>
+            <h4 class="timeline-institution">Sri Chaitanya Junior College (BIEAP)</h4>
+            <div class="score-badge">
+              <span class="score-highlight">66%</span> • Mathematics, Physics, Chemistry
+            </div>
+            <p class="timeline-notes">
+              Developed strong mathematical reasoning, logical analysis, and quantitative aptitude essential for algorithmic computation.
+            </p>
+          </div>
+        </div>
+
+        <!-- Schooling -->
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content glass-panel">
+            <div class="timeline-date-badge">2018 — 2019</div>
+            <h3 class="timeline-degree">Secondary School Examination (CBSE)</h3>
+            <h4 class="timeline-institution">Vignan High School</h4>
+            <div class="score-badge">
+              <span class="score-highlight">75%</span> • All-Round Academic Record
+            </div>
+            <p class="timeline-notes">
+              Consistently active in science fairs, mathematics Olympiads, and foundational computing workshops.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Certifications Section -->
+  <section class="section" id="certifications">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-sub">Credentials & Upskilling</span>
+        <h2 class="section-title">Certifications & Learning</h2>
+        <div class="section-decor"></div>
+      </div>
+
+      <div class="cert-grid">
+        <div class="cert-card glass-panel">
+          <div class="cert-icon-circle gold">🏆</div>
+          <div class="cert-details">
+            <span class="cert-issuer">NPTEL • Ministry of Education, Govt. of India</span>
+            <h3 class="cert-name">The Joy of Computing using Python</h3>
+            <p class="cert-text">
+              Comprehensive certification in Python algorithms, computational thinking, data analysis patterns, and problem solving.
+            </p>
+            <span class="cert-status verified">✓ Verified Credential</span>
+          </div>
+        </div>
+
+        <div class="cert-card glass-panel">
+          <div class="cert-icon-circle blue">📜</div>
+          <div class="cert-details">
+            <span class="cert-issuer">Cambridge English Qualifications</span>
+            <h3 class="cert-name">Preliminary English Test (PET)</h3>
+            <p class="cert-text">
+              International certification validating business English communication, written composition, and spoken fluency for global environments.
+            </p>
+            <span class="cert-status verified">✓ Verified Credential</span>
+          </div>
+        </div>
+
+        <div class="cert-card glass-panel">
+          <div class="cert-icon-circle purple">☁️</div>
+          <div class="cert-details">
+            <span class="cert-issuer">Cloud Computing Academy</span>
+            <h3 class="cert-name">Python Programming with AWS</h3>
+            <p class="cert-text">
+              Advanced specialized training focused on deploying Python services, working with cloud databases, and AWS ecosystem fundamentals.
+            </p>
+            <span class="cert-status active">⚡ Specialized Upskilling</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-sub">Get In Touch</span>
+        <h2 class="section-title">Let's Connect</h2>
+        <p class="section-desc">I am open to full-time roles, software engineering interviews, and project collaborations.</p>
+        <div class="section-decor"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-panel glass-panel">
+          <h3 class="panel-heading">Reach Out Directly</h3>
+          <p class="panel-subtext">
+            Feel free to send an email, connect on LinkedIn, or copy my contact information below. I typically respond within 24 hours.
+          </p>
+
+          <div class="contact-methods">
+            <div class="contact-method-card">
+              <div class="method-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                  <polyline points="22,6 12,13 2,6"></polyline>
+                </svg>
+              </div>
+              <div class="method-content">
+                <span class="method-label">Direct Email</span>
+                <span class="method-val" id="emailAddressText">haneeshchowdaryp@gmail.com</span>
+              </div>
+              <button class="btn-copy-icon" id="copyEmailAction" title="Copy to clipboard">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="contact-method-card">
+              <div class="method-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                  <rect x="2" y="9" width="4" height="12"></rect>
+                  <circle cx="4" cy="4" r="2"></circle>
+                </svg>
+              </div>
+              <div class="method-content">
+                <span class="method-label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/haneesh-chowdary-ponduri" target="_blank" rel="noopener noreferrer" class="method-link">
+                  linkedin.com/in/haneesh-chowdary-ponduri
+                </a>
+              </div>
+            </div>
+
+            <div class="contact-method-card">
+              <div class="method-icon">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+              </div>
+              <div class="method-content">
+                <span class="method-label">GitHub</span>
+                <a href="https://github.com/haneeshchowdary" target="_blank" rel="noopener noreferrer" class="method-link">
+                  github.com/haneeshchowdary
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive Quick Contact Form -->
+        <div class="contact-form-panel glass-panel">
+          <h3 class="panel-heading">Send a Direct Message</h3>
+          <p class="panel-subtext">Fill out this quick form to send me an email directly.</p>
+
+          <form id="portfolioContactForm" class="contact-form">
+            <div class="form-group">
+              <label for="senderName">Your Name</label>
+              <input type="text" id="senderName" class="form-control" placeholder="e.g. Alex Smith" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderEmail">Your Email</label>
+              <input type="email" id="senderEmail" class="form-control" placeholder="e.g. alex@company.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderSubject">Subject</label>
+              <input type="text" id="senderSubject" class="form-control" placeholder="Opportunity / Project Inquiry" required>
+            </div>
+
+            <div class="form-group">
+              <label for="senderMessage">Message</label>
+              <textarea id="senderMessage" class="form-control" rows="4" placeholder="Hello Haneesh, we would like to discuss..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-full">
+              <span>Send Message</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Project Details Modal -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true" role="dialog">
+    <div class="modal-content glass-panel">
+      <button class="modal-close" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div id="modalInnerContent">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-notification" id="toastNotification">
+    <span class="toast-icon">✓</span>
+    <span class="toast-message" id="toastMessage">Email copied to clipboard!</span>
+  </div>
+
+  <!-- Floating Scroll-To-Top Button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="footer-logo">Haneesh<span>.dev</span></div>
+        <p class="footer-tagline">Building modern software with precision, data, and passion.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Haneesh Chowdary Ponduri. All rights reserved.</p>
+        <p class="footer-credits">Designed with modern HTML5, CSS3 Glassmorphism & Vanilla JavaScript.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script src="script.js"></script>
+</body>
+</html>
